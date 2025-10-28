@@ -1,0 +1,16 @@
+{
+  "name": "ask-eve",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db:migrate": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "vite": "^7.1.12"
+  }
+}

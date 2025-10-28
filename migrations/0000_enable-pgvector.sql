@@ -1,0 +1,2 @@
+-- TODO: Paste from the guide:
+-- CREATE EXTENSION IF NOT EXISTS vector;
