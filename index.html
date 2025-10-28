@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ask Eve</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body style="font-family: system-ui; padding: 2rem;">
+    <h1>Ask Eve</h1>
+    <form id="f">
+      <input id="q" name="q" placeholder="Ask about your docs..." style="width: 60%; padding: .5rem;" />
+      <button type="submit">Ask</button>
+    </form>
+    <pre id="out"></pre>
+    <script>
+      const f = document.getElementById('f');
+      const out = document.getElementById('out');
+      f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const q = document.getElementById('q').value;
+        out.textContent = "Thinking…";
+        const r = await fetch('/.netlify/functions/ask-eve-search', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ q })
+        });
+        out.textContent = await r.text();
+      });
+    </script>
+  </body>
+</html>
